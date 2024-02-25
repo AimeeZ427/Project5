@@ -11,7 +11,8 @@ namespace Project5
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Slider slider1;
-        private SpriteFont JasonFont;
+        private SpriteFont JasonFont; //label font
+        //private SpriteFont labelFont;
 
         public Game1()
         {
@@ -37,6 +38,7 @@ namespace Project5
 
             // TODO: use this.Content to load your game content here
             JasonFont = Content.Load<SpriteFont>("JasonFont");
+            //labelFont = Content.Load<SpriteFont>("File");
         }
 
         protected override void Update(GameTime gameTime)
@@ -62,7 +64,8 @@ namespace Project5
 
             _spriteBatch.Begin();
             slider1.draw(_spriteBatch);
-            _spriteBatch.DrawString(JasonFont, "Hello World", new Vector2(100, 100), Color.BlueViolet);
+            slider1.drawLabels(_spriteBatch, JasonFont, "idk"); //why wont label font work??? idk
+            //_spriteBatch.DrawString(JasonFont, "Hello World", new Vector2(100, 100), Color.BlueViolet);
             _spriteBatch.End();
 
             base.Draw(gameTime);

@@ -38,9 +38,17 @@ namespace Project5
 
             drawRect(new Rectangle(location.X, location.Y, width, 15), _spriteBatch); //the bar part
             drawRect(new Rectangle(location.X + currentV - 4, location.Y - 10, 8, 35), _spriteBatch, Color.LightSlateGray); //the toggle part
+            
+            
 
             //_spriteBatch.End();
 
+        }
+
+        public void drawLabels(SpriteBatch _spriteBatch, SpriteFont font, String title)
+        {
+            
+            _spriteBatch.DrawString(font, "hi", new Vector2(location.X+width+30, location.Y+17-10), Color.BlueViolet);
         }
 
         public void drawRect(Rectangle rect, SpriteBatch _spriteBatch, Color? color = null)
