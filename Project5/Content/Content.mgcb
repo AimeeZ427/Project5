@@ -70,3 +70,17 @@
 /processorParam:TextureFormat=Compressed
 /build:JasonFont.spritefont
 
+#begin labelFont2.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:labelFont2.spritefont
+
+#begin labelFont3.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:labelFont3.spritefont
+

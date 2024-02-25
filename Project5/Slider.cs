@@ -4,7 +4,9 @@ using Microsoft.Xna.Framework.Input;
 using Project5;
 using System;
 using System.Collections.Generic;
+//using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,13 +21,17 @@ namespace Project5
         Point location;
         int width;
         bool active;
+        string leftl;
+        string rightl;
 
-        public Slider(Point l, int w, int initValue)
+        public Slider(Point l, int w, int initValue, string l1, string l2)
         {
             location = l;
             width = w;
             currentV = initValue;
             active = false;
+            leftl = l1;
+            rightl = l2;    
         }
 
 
@@ -45,10 +51,31 @@ namespace Project5
 
         }
 
-        public void drawLabels(SpriteBatch _spriteBatch, SpriteFont font, String title)
+        /*
+         * public void drawText(SpriteBatch _spriteBatch,SpriteFont font,SpriteFont font2)
         {
-            
-            _spriteBatch.DrawString(font, "hi", new Vector2(location.X+width+30, location.Y+17-10), Color.BlueViolet);
+            Point l = new Point();
+            l.X = (int)((140-font.MeasureString(texts[which]).X)/2);
+            l.Y = (int)((70 - font.MeasureString(texts[which]).Y) / 2);
+            Point l2 = new Point();
+            l2.X = location.X - (int)font.MeasureString(label).X;
+            l2.Y = location.Y + (int)(70 - font.MeasureString(label).Y) / 2;
+            _spriteBatch.DrawString(font, texts[which], new Microsoft.Xna.Framework.Vector2(l.X+location.X, location.Y+l.Y), new Color(72, 76, 84));
+            _spriteBatch.DrawString(font2, label, new Microsoft.Xna.Framework.Vector2(l2.X, l2.Y), new Color(72, 76, 84));
+        }
+         */
+
+        public void drawLabels(SpriteBatch _spriteBatch, SpriteFont font2, string title,SpriteFont font)
+        {
+            Point l = new Point();
+            l.X = (int)(location.X - font.MeasureString(title).X)-(int)font2.MeasureString(leftl).X-(int)font.MeasureString("ii").X-5;
+            l.Y = (int)((font.MeasureString(title).Y-15) / 2);
+
+            int y = (int)(font2.MeasureString(leftl).Y - 15) / 2;
+
+            _spriteBatch.DrawString(font, title, new Microsoft.Xna.Framework.Vector2(l.X, l.Y*-1+location.Y), new Color(72, 76, 84));
+            _spriteBatch.DrawString(font2,leftl, new Microsoft.Xna.Framework.Vector2(l.X+ (int)font.MeasureString("ii").X+(int)font.MeasureString(title).X,-y+location.Y), new Color(72, 76, 84));
+            _spriteBatch.DrawString(font2,rightl,new Microsoft.Xna.Framework.Vector2(location.X+width+5, -y + location.Y), new Color(72, 76, 84));
         }
 
         public void drawRect(Rectangle rect, SpriteBatch _spriteBatch, Color? color = null)
